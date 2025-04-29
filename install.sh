@@ -65,4 +65,4 @@ echo "Installing dependencies from requirements.txt into the virtual environment
 
 echo "Installation complete."
 echo "To activate the virtual environment, run: source $SCRIPT_DIR/$VENV_DIR/bin/activate"
-echo "To run the server (after activating), use: uvicorn app.main:mcp --host 0.0.0.0 --port 8000" 
+echo "To run the server (after activating), use: python $SCRIPT_DIR/app/main.py" 

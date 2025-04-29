@@ -2,7 +2,17 @@
 
 A MCP (Model Context Protocol) server for using natural language to monitor and remotely control a Nvidia Jetson board from clients on the same network.
 
+<p align="center">
+  <img src="resources/nvidia_jetson.jpg" alt="Nvidia Jetson">
+</p>
+
 This project uses the [FastMCP](https://github.com/jlowin/fastmcp) library to create the server.
+
+**MCP Server Connected:**
+
+<p align="center">
+  <img src="resources/mcp_server.png" alt="MCP Server Connected">
+</p>
 
 ## Features
 
@@ -55,7 +65,7 @@ The recommended way to run the server is as a background service managed by syst
 
 ### Running Manually (for testing)
 
-You can also run the server manually in the foreground using Python directly:
+The server is best run directly using the Python interpreter, which will invoke the `mcp.run()` method configured within the script:
 
 ```bash
 source venv/bin/activate
@@ -74,3 +84,18 @@ Once the server is running on the Jetson and accessible on the network (port 800
 
 
 *Note: Cursor's `mcp.json` file is primarily designed for launching local servers via `stdio` transport. Connecting Cursor to this networked SSE server might require different configuration steps or might not be directly supported without a proxy.* Consult your specific client's documentation for how to connect to a network MCP SSE endpoint.
+
+## Examples / Screenshots
+
+**Hardware Info Tool:**
+
+<p align="center">
+  <img src="resources/get_hardware_info.png" alt="Hardware Info Tool">
+</p>
+
+**Software Info Tool:**
+
+<p align="center">
+  <img src="resources/get_software_info.png" alt="Software Info Tool">
+</p>
+

@@ -66,7 +66,7 @@ After=network.target
 User=${SERVICE_USER}
 Group=${SERVICE_GROUP}
 WorkingDirectory=${PROJECT_DIR}
-# Execute the python script directly; it now handles its own launch via mcp.run()
+# Execute the python script directly; it handles its own launch via mcp.run()
 ExecStart=${PROJECT_DIR}/venv/bin/python ${PROJECT_DIR}/app/main.py
 Restart=on-failure
 RestartSec=5s
