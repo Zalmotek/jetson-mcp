@@ -69,10 +69,8 @@ Once the server is running on the Jetson and accessible on the network (port 800
 
 1.  **Identify the Server Address**: Find the Jetson's IP address (e.g., `192.168.1.105`) or its hostname (e.g., `jetson-nano.local`) on your LAN.
 2.  **Configure Your Client**: In your MCP client application (which could be a custom script, a UI like MCP Inspector, or potentially Cursor/Claude if they support network endpoints), configure it to connect to the MCP server at its network address.
-    *   The specific connection method depends on the client, but it will likely involve specifying a URL for the SSE endpoint. Based on how FastMCP might set up SSE, try these URLs:
-        *   `http://<jetson_ip_or_hostname>:8000` (Try root first)
-        *   `http://<jetson_ip_or_hostname>:8000/mcp` (As seen in some inspectors)
+    *   The specific connection method depends on the client, but it will likely involve specifying a URL for the SSE endpoint:
         *   `http://<jetson_ip_or_hostname>:8000/sse` (Common pattern for SSE)
-    *   The client might also need to know where to POST messages (FastMCP might handle this transparently or use a default like `/messages`).
+
 
 *Note: Cursor's `mcp.json` file is primarily designed for launching local servers via `stdio` transport. Connecting Cursor to this networked SSE server might require different configuration steps or might not be directly supported without a proxy.* Consult your specific client's documentation for how to connect to a network MCP SSE endpoint.

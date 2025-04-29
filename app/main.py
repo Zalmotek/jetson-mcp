@@ -17,7 +17,7 @@ mcp = FastMCP("Jetson MCP Server (FastMCP)")
 
 @mcp.tool()
 async def get_jetson_hw_info() -> str:
-    """This tool provides information about the Jetson board hardware capabilities."""
+    """This tool provides information about the Jetson board hardware capabilities (module/carrier board info)."""
     command = "cat /etc/nv_boot_control.conf"
     logger.info(f"Executing command: {command}")
     try:
@@ -43,7 +43,7 @@ async def get_jetson_hw_info() -> str:
 
 @mcp.tool()
 async def get_jetson_sw_info() -> dict:
-    """Retrieves Jetpack version and Linux kernel version."""
+    """This tool provides information about the Jetson board software capabilities (Linux kernel version and Jetpack version)."""
     logger.info("Executing get_jetson_sw_info tool...")
     
     sw_info = {
@@ -97,12 +97,15 @@ async def get_jetson_sw_info() -> dict:
 async def get_jetson_info() -> dict:
     """Provides basic information about the Jetson MCP server."""
     logger.info("Executing get_jetson_info resource...")
-    # Access title via the mcp instance
+    # Use the name string directly instead of relying on mcp.title
+    server_name = "Jetson MCP Server (FastMCP)"
+    # Hardcode the list of capabilities since mcp.get_tools() doesn't exist
+    capabilities_list = ["get_jetson_hw_info", "get_jetson_sw_info"]
     return {
-        "server_name": mcp.title,
+        "server_name": server_name,
         "version": "0.3.0",
         "description": "MCP Server for monitoring and controlling a Jetson board (using FastMCP/SSE).",
-        "capabilities": list(mcp.get_tools().keys()) # Dynamically get tool names
+        "capabilities": capabilities_list
     }
 
 # Note: We do not need Starlette setup.
