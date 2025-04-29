@@ -37,17 +37,17 @@ fi
 echo "Checking for Python 3 venv module..."
 if ! python3 -m venv --help &> /dev/null
 then
-    echo "-------------------------------------------------------------------\"
-    echo \"Error: Python 3 venv module not found.\"
-    echo \"The venv module is required to create isolated Python environments.\"
-    echo \"\"
-    echo \"Please install the venv module for Python 3 using your system package manager.\"
-    echo \"For Debian/Ubuntu-based systems (like Jetson L4T), run:\"
-    echo \"  sudo apt update\"
-    echo \"  sudo apt install python3-venv\"
-    echo \"\"
-    echo \"After installing the venv module, re-run this script ('./install.sh').\"
-    echo \"-------------------------------------------------------------------\"
+    echo "-------------------------------------------------------------------"
+    echo "Error: Python 3 venv module not found."
+    echo "The venv module is required to create isolated Python environments."
+    echo ""
+    echo "Please install the venv module for Python 3 using your system package manager."
+    echo "For Debian/Ubuntu-based systems (like Jetson L4T), run:"
+    echo "  sudo apt update"
+    echo "  sudo apt install python3-venv"
+    echo ""
+    echo "After installing the venv module, re-run this script ('./install.sh')."
+    echo "-------------------------------------------------------------------"
     exit 1
 else
     echo "Python 3 venv module found."
